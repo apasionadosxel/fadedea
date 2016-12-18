@@ -20,7 +20,7 @@ def add_cors_headers(response):
 app.after_request(add_cors_headers)
 
 
-@app.route('/programs/<program_name>', methods=['GET'])
+@app.route('/programs/<str:program_name>', methods=['GET'])
 def run_program():
     code = tasks.run_process(program_name)
     data = {"status":str(code)}
