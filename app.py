@@ -1,12 +1,13 @@
 from flask import Flask, Response, request, jsonify
 from bson import Binary, Code
 from bson.json_util import dumps
+from pymongo import MongoClient
 import re
 
 app = Flask(__name__)
 
-client = MongoClient()
-db = client.tasks
+#client = MongoClient()
+#db = client.tasks
 
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
